@@ -2,14 +2,16 @@ package quoters;
 
 import javax.annotation.PostConstruct;
 
-/**
- * Created by Shoma on 07.06.2018.
- */
 @Profiling
+@DeprecatedClass(newImpl = T1000.class)
 public class TerminatorQuoter implements Quoter {
     @InjectRandomInt(min = 2, max = 7)
     private int repeat;
     private String message;
+
+    public void setRepeat(int repeat) {
+        this.repeat = repeat;
+    }
 
     public TerminatorQuoter() {
         System.out.println("Phase 1");
